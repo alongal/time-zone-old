@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "79b69439c6bcc961a7ccb43d406b0629",
+    "content-hash": "cd98549d2a97452ed83bbc6c99be9e93",
     "packages": [
+        {
+            "name": "alongal/timezone",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/Applications/XAMPP/xamppfiles/htdocs/Code/package-time-zone/packages/Alongal/TimeZone",
+                "reference": "6938a0eb7c82b989c7d2c5dadaf4cdf8c9e188a4",
+                "shasum": null
+            },
+            "require": {
+                "illuminate/support": "~5|~6"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~7.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alongal\\TimeZone\\TimeZoneServiceProvider"
+                    ],
+                    "aliases": {
+                        "TimeZone": "Alongal\\TimeZone\\Facades\\TimeZone"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alongal\\TimeZone\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Alongal\\TimeZone\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alon Gal",
+                    "email": "alondagal@gmail.com",
+                    "homepage": "https://galalon.me"
+                }
+            ],
+            "description": ":description",
+            "homepage": "https://github.com/alongal/timezone",
+            "keywords": [
+                "Laravel",
+                "TimeZone"
+            ]
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -5219,7 +5275,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "alongal/timezone": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -1,0 +1,43 @@
+{
+    "name": "alongal/timezone",
+    "description": ":description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alon Gal",
+            "email": "alondagal@gmail.com",
+            "homepage": "https://galalon.me"
+        }
+    ],
+    "homepage": "https://github.com/alongal/timezone",
+    "keywords": ["Laravel", "TimeZone"],
+    "require": {
+        "illuminate/support": "~5|~6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alongal\\TimeZone\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alongal\\TimeZone\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alongal\\TimeZone\\TimeZoneServiceProvider"
+            ],
+            "aliases": {
+                "TimeZone": "Alongal\\TimeZone\\Facades\\TimeZone"
+            }
+        }
+    }
+}
