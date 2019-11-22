@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return \Alongal\TimeZone\TimeZone::test();
+    $timezone = new \Alongal\TimeZone\TimeZone();
+    return $timezone->getFromCoordinates(-38.1081, 145.306);
 });
