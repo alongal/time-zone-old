@@ -7,6 +7,15 @@ use Illuminate\Support\Carbon;
 
 class TimeZone
 {
+    private function __construct()
+    {
+    }
+
+    public static function createFromCoordinates($latitude, $longitude)
+    {
+
+    }
+
     public function getFromCoordinates($latitude, $longitude)
     {
         $timezone = $this->get_nearest_timezone($latitude, $longitude);

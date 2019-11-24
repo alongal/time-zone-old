@@ -12,6 +12,11 @@
 */
 
 Route::get('/', function () {
+
+    return \Alongal\TimeZone\TimeZone::createFromCoordinates(-38.1081, 145.306)
+        ->format('Y-m-d H:i:s')
+        ->getTime();
+
     $timezone = new \Alongal\TimeZone\TimeZone();
     return $timezone->getFromCoordinates(-38.1081, 145.306);
 });
