@@ -7,20 +7,34 @@ use Illuminate\Support\Carbon;
 
 class TimeZone
 {
-    private function __construct()
+    protected $latitude;
+    protected $longitude;
+    protected $timezone;
+    protected $time;
+
+    private function __construct($latitude, $longitude)
     {
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
+        $this->timezone = $this->get_nearest_timezone($latitude, $longitude);
+        $this->time = Carbon::now($this->timezone);
+
+        return $this;
     }
 
     public static function createFromCoordinates($latitude, $longitude)
     {
-
+        return new self($latitude, $longitude);
     }
 
-    public function getFromCoordinates($latitude, $longitude)
+    public function getTime($format = 'Y-m-d H:i:s')
     {
-        $timezone = $this->get_nearest_timezone($latitude, $longitude);
+        return $this->time->format($format);
+    }
 
-        return Carbon::now($timezone);
+    public function getTimezone()
+    {
+        return $this->timezone;
     }
 
     /* Code was adapted from
