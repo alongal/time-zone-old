@@ -31,7 +31,6 @@ class TimeZoneTest extends TestCase
             'latitude' => -38.1081,
             'longitude' => 145.306
         ];
-
         Carbon::setTestNow(Carbon::createFromTimeString('2000-01-01 10:00:00', 'Australia/Melbourne'));
 
         $this->assertEquals('2000-01-01 10:00:00',
@@ -39,6 +38,23 @@ class TimeZoneTest extends TestCase
                 $melbourneCoordinates['latitude'],
                 $melbourneCoordinates['longitude']
             )->getTime()
+        );
+    }
+
+    /** @test */
+    function it_can_format_the_date_and_time_that_returned()
+    {
+        $melbourneCoordinates = [
+            'latitude' => -38.1081,
+            'longitude' => 145.306
+        ];
+        Carbon::setTestNow(Carbon::createFromTimeString('2000-01-01 10:00:00', 'Australia/Melbourne'));
+
+        $this->assertEquals('Sat, 01 Jan 2000 10:00:00 +1100',
+            TimeZone::createFromCoordinates(
+                $melbourneCoordinates['latitude'],
+                $melbourneCoordinates['longitude']
+            )->getTime(DATE_RSS)
         );
     }
 }
